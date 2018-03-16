@@ -27,6 +27,9 @@ npm install --save vue-promise-btn
 import Vue from 'vue'
 import VuePromiseBtn from 'vue-promise-btn'
 
+// not required. Styles for built-in spinner
+import 'vue-promise-btn/dist/vue-promise-btn.css'
+
 Vue.use(VuePromiseBtn)
 ```
 
