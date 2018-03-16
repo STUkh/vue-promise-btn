@@ -1,0 +1,66 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.spinner[data-v-39432f99] {
+  opacity: 1;
+  display: inline-block;
+  vertical-align: middle;
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 1s linear infinite;
+  margin: 0 0 0 10px;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.hidden > .spinner[data-v-39432f99] {
+  max-width: 0 !important;
+  max-height: 0 !important;
+  border-width: 0 !important;
+  margin: 0;
+  opacity: 0;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+

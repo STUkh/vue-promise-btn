@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Promise Btn</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@latest/dist/vue.js"></script>
+  <script src="./dist/vue-promise-btn.umd.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+  <link rel="stylesheet" href="./example/cayman-theme.min.css?v=61aea895ce389a448a1ddb8f5be47f68a02053c5">
+  <link rel="stylesheet" href="./dist/vue-promise-btn.css">
+  <link rel="stylesheet" href="./example/example.css">
+</head>
+<body>
+  <div id="app">
+    <section class="page-header">
+      <h1 class="project-name">vue-promise-btn</h1>
+      <h2 class="project-tagline">Vue.js plugin that handles buttons asynchronous lock and show loading state indicator</h2>
+        <a href="https://github.com/STUkh/vue-promise-btn" class="btn">View on GitHub</a>
+        <a href="https://github.com/STUkh/vue-promise-btn/zipball/master" class="btn">Download .zip</a>
+        <a href="https://github.com/STUkh/vue-promise-btn/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+    <section class="main-content">
+      <h2>Installation</h2>
+      <div class="highlight">
+        <pre class="highlight"><span class="no">import</span> Vue <span class="no">from</span> 'vue'
+<span class="no">import</span> VuePromiseBtn <span class="no">from</span> 'vue-promise-btn'
+
+Vue.use(VuePromiseBtn)</pre>
+      </div>
+
+      <h2>Quick Start</h2>
+      <p>Plugin syntax is extremely simple. Just add directive v-promise-btn to your button:</p>
+      <div class="highlight">
+        <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> @click="getData"&gt;Get Data&lt;/button&gt;</code></pre>
+      </div>
+
+      <blockquote>
+        <b>!!! Event handler should always return Promise</b>
+      </blockquote>
+
+      <h3>Examples</h3>
+      <p><button v-promise-btn @click="dummyAsyncAction">Click handler</button>&nbsp;&nbsp;&nbsp;<button v-promise-btn @click="chain">Promise chain example <span v-show="currentChain">{{currentChain}}</span></button></p>
+      <div class="highlight">
+        <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> @click="asyncAction"&gt;Click handler&lt;/button&gt;</code></pre>
+      </div>
+      <p><button v-promise-btn @click.prevent="dummyAsyncAction">With Prevent modifier</button></p>
+      <div class="highlight">
+        <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> @click.prevent="asyncAction"&gt;With Prevent modifier&lt;/button&gt;</code></pre>
+      </div>
+      <p><button v-promise-btn="{action: 'contextmenu'}" @click.right.prevent="dummyAsyncAction">Right mouse</button></p>
+      <div class="highlight">
+        <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{action: 'contextmenu'}"</span> @click.right="asyncAction"&gt;Right mouse&lt;/button&gt;</code></pre>
+      </div>
+      <p><button v-promise-btn="{action: 'mouseup'}" @click.middle="dummyAsyncAction">Middle mouse </button></p>
+      <div class="highlight">
+        <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{action: 'mouseup'}"</span> @click.middle="asyncAction"&gt;Middle mouse&lt;/button&gt;</code></pre>
+      </div>
+      <p><button v-promise-btn="promiseBtnOptions.customComponentLoader" @click="dummyAsyncAction">Loader as custom component</button></p>
+      <div class="highlight">
+        <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{loader: CustomSpinnerComponent}"</span> @click="asyncAction"&gt;Loader as custom component&lt;/button&gt;</code></pre>
+      </div>
+      <p><button v-promise-btn="promiseBtnOptions.customHTMLLoader" @click="dummyAsyncAction">Loader as simple HTML</button></p>
+      <div class="highlight">
+        <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{loader: '&lt;b&gt;(HTML loader...)&lt;/b&gt;' }"</span> @click="asyncAction"&gt;Loader as custom component&lt;/button&gt;</code></pre>
+      </div>
+
+      <hr>
+
+      <form action="" @submit.prevent="dummyAsyncAction" v-promise-btn="{action: 'submit'}">
+        <p><button type="submit">Button Form Submit</button></p>
+      </form>
+      <div class="highlight">
+        <pre class="highlight"><code>&lt;form <span class="s1">v-promise-btn="{action: 'submit'}"</span> @submit.prevent="asyncAction"&gt;
+  &lt;button type="submit"&gt;Button Form Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      </div>
+
+      <form action="" @submit.prevent="dummyAsyncAction" v-promise-btn="{action: 'submit'}">
+        <p><input type="submit" value="Input Form Submit"></p>
+        <blockquote>Spinner is hidden because it can't be appended into &lt;input type="submit"&gt; element</blockquote>
+      </form>
+
+      <h2>Options</h2>
+      <table>
+        <tr>
+          <th>Option</th>
+          <th>Type</th>
+          <th>Default value</th>
+        </tr>
+        <tr>
+          <td>btnLoadingClass</td>
+          <td>String</td>
+          <td>loading</td>
+        </tr>
+        <tr>
+          <td>spinnerHiddenClass</td>
+          <td>String</td>
+          <td>hidden</td>
+        </tr>
+        <tr>
+          <td>action</td>
+          <td>String</td>
+          <td>click</td>
+        </tr>
+        <tr>
+          <td>disableBtn</td>
+          <td>Boolean</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>minTimeout</td>
+          <td>Number</td>
+          <td>400</td>
+        </tr>
+        <tr>
+          <td>autoHideSpinnerWrapper</td>
+          <td>Boolean</td>
+          <td>false (if true - add display property that depends on spinner state)</td>
+        </tr>
+        <tr>
+          <td>loader</td>
+          <td>Component or HTML String</td>
+          <td>Built-in Spinner component</td>
+        </tr>
+        <tr>
+          <td>spinnerWrapper</td>
+          <td>Function</td>
+          <td>Returns spinner wrapper template</td>
+        </tr>
+        <tr>
+          <td>spinnerRenderer</td>
+          <td>Function</td>
+          <td>Returns spinner funcional renderer</td>
+        </tr>
+      </table>
+
+      <h2>Action types</h2>
+      <p>Vue internal action names for mouse modifiers</p>
+      <table>
+        <tr>
+          <th>Mouse Modifier</th>
+          <th>Action Name</th>
+        </tr>
+        <tr>
+          <td>Left</td>
+          <td>click</td>
+        </tr>
+        <tr>
+          <td>Right</td>
+          <td>contextmenu</td>
+        </tr>
+        <tr>
+          <td>Middle</td>
+          <td>mouseup</td>
+        </tr>
+      </table>
+      <h2>Limitations</h2>
+      <ul>
+        <li>
+            Vue versions below <a href="https://github.com/vuejs/vue/releases/tag/v2.5.14">v2.5.14</a> does not support promise-btn with event modifiers. <br>
+            This code will not work, because events with modifiers will always return "undefined"
+            <div class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> @click.prevent="asyncAction"&gt;With Prevent modifier&lt;/button&gt;</code></div>
+            <p><b>Solution:</b> Update Vue to <a href="https://github.com/vuejs/vue/releases/tag/v2.5.14">v2.5.14</a> or higher. <a href="https://github.com/vuejs/vue/issues/7705">Issue</a> Fixed by <a href="https://github.com/vuejs/vue/pull/7704">this PR</a></p>
+        </li>
+      </ul>
+      <footer class="site-footer">
+        <span class="site-footer-owner">MIT &copy; {{currentYear}} <a href="https://github.com/STUkh">STUkh</a></span> 
+        <span class="site-footer-credits"><a href="https://github.com/STUkh/vue-promise-btn">GitHub</a> ◉ <a href="https://npmjs.org/package/vue-promise-btn">NPM</a></span>
+      </footer>
+    </section>
+</div>
+<script src="./example/example.js"></script>
+</body>
+</html>
