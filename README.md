@@ -1,25 +1,7 @@
 # vue-promise-btn
 
-Vue.js plugin that handles buttons asynchronous lock and show loading state indicator
-
-<p align="center">
-  <a href="https://npmjs.org/package/vue-promise-btn">
-    <img src="https://img.shields.io/npm/dm/vue-promise-btn.svg?style=flat-square" alt="Downloads" />
-  </a>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License" />
-  </a>
-  <a href="https://npmjs.org/package/vue-promise-btn">
-    <img src="https://img.shields.io/npm/v/vue-promise-btn.svg?style=flat-square" alt="Packagist" />
-  </a>
-  <a href="https://github.com/STUkh <stukak@gmail.com>/vue-promise-btn/releases">
-    <img src="https://img.shields.io/github/release/STUkh <stukak@gmail.com>/vue-promise-btn.svg?style=flat-square" alt="Latest Version" />
-  </a>
-
-  <a href="https://github.com/STUkh <stukak@gmail.com>/vue-promise-btn/issues">
-    <img src="https://img.shields.io/github/issues/STUkh <stukak@gmail.com>/vue-promise-btn.svg?style=flat-square" alt="Issues" />
-  </a>
-</p>
+[![NPM Version](http://img.shields.io/npm/v/vue-promise-btn.svg?style=flat-square)](https://www.npmjs.com/package/vue-promise-btn)
+[![Download Month](http://img.shields.io/npm/dm/vue-promise-btn.svg?style=flat-square)](https://www.npmjs.com/package/vue-promise-btn)
 
 ## Example and Documentation
 https://STUkh.github.io/vue-promise-btn/
@@ -61,12 +43,11 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 ## Credits
 
-- [Alex Stepchenkov][link-author]
-- [All Contributors][link-contributors]
+- [Alex Stepchenkov](https://github.com/STUkh)
+- [All Contributors](https://github.com/STUkh/vue-promise-btn/graphs/contributors)
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[link-author]: https://github.com/STUkh <stukak@gmail.com>
-[link-contributors]: ../../contributors
+&copy; [STUkh](https://github.com/STUkh) <stukak@gmail.com>

@@ -1,14 +1,25 @@
 {
   "name": "vue-promise-btn",
-  "version": "1.0.1",
+  "version": "1.0.8",
   "description": "Vue.js plugin that handles buttons asynchronous lock and show loading state indicator",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "cross-env NODE_ENV=development rollup -cw",
+    "clean": "rimraf dist/",
+    "compile": "cross-env NODE_ENV=production rollup -c",
+    "build": "npm run clean && npm run compile"
+  },
+  "author": {
+    "name": "alex.stepchenkov",
+    "email": "stukak@gmail.com",
+    "url": "https://github.com/STUkh"
+  },
+  "repository": "https://github.com/STUkh/vue-promise-btn",
+  "homepage": "https://github.com/STUkh/vue-promise-btn",
   "module": "dist/vue-promise-btn.js",
   "main": "dist/vue-promise-btn.common.js",
   "unpkg": "dist/vue-promise-btn.umd.js",
   "style": "dist/vue-promise-btn.css",
-  "directories": {
-    "test": "test"
-  },
   "keywords": [
     "vue",
     "promise",
@@ -20,22 +31,10 @@
     "loader",
     "rollup"
   ],
-  "scripts": {
-    "start": "npm run dev",
-    "dev": "cross-env NODE_ENV=development rollup -cw",
-    "clean": "rimraf dist/",
-    "compile": "cross-env NODE_ENV=production rollup -c",
-    "build": "npm run clean && npm run compile"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/STUkh/vue-promise-btn.git"
-  },
   "files": [
     "dist/",
     "src/"
   ],
-  "author": "Alexey Stepchenkov (stukak@gmail.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/STUkh/vue-promise-btn/issues"
