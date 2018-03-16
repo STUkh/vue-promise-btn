@@ -28,10 +28,6 @@ button .promise-btn__spinner-wrapper {
   margin: -8px 0;
 }
 
-button .promise-btn__spinner-wrapper.hidden {
-    display: none;
-}
-
 .site-footer {
   display: flex;
   justify-content: space-between;
