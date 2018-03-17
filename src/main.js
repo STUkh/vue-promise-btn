@@ -1,13 +1,13 @@
 import Spinner from './components/Spinner.vue'
-import { setupVuePromiseBtn, spinnerWrapper, spinnerRenderer } from './directives/vue-promise-btn.directive'
+import { setupVuePromiseBtn, stringHTMLRenderer, componentRenderer } from './directives/vue-promise-btn.directive'
 
 const defaultOptions = {
   btnLoadingClass: 'loading',
   showSpinner: true,
   action: 'click',
   disableBtn: true,
-  spinnerWrapper: spinnerWrapper,
-  spinnerRenderer: spinnerRenderer,
+  stringHTMLRenderer: stringHTMLRenderer,
+  componentRenderer: componentRenderer,
   minTimeout: 400,
   spinnerHiddenClass: 'hidden',
   autoHideSpinnerWrapper: false,

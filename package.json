@@ -1,6 +1,6 @@
 {
   "name": "vue-promise-btn",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Vue.js plugin that handles buttons asynchronous lock and show loading state indicator",
   "scripts": {
     "start": "npm run dev",

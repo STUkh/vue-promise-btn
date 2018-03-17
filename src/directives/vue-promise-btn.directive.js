@@ -4,14 +4,17 @@ import { isString, isObject, isPromise } from '../utils/objectUtils'
 const pluginElPropName = '$promiseBtnId'
 let elementId = 0
 
-export const spinnerWrapper = function (options) {
+export const stringHTMLRenderer = function (options) {
   return `
-  <span class="promise-btn__spinner-wrapper" v-show="show">
+  <span class="promise-btn__spinner-wrapper" 
+        :class="{[options.spinnerHiddenClass]: !show || false}"
+        v-show="options.autoHideSpinnerWrapper ? show : true"
+  >
     ${options.loader}
   </span>`
 }
 
-export const spinnerRenderer = function (options) {
+export const componentRenderer = function (options) {
   return function (h) {
     return h('span', {
       class: {
@@ -46,12 +49,16 @@ const initSpinner = function (btnEl, options, vnode, isLoaderString) {
   if (isLoaderString) {
     vueSpinnerOptions = {
       ...vueSpinnerOptions,
-      template: options.spinnerWrapper(options)
+      data: {
+        ...vueSpinnerOptions.data,
+        options
+      },
+      template: options.stringHTMLRenderer(options)
     }
   } else {
     vueSpinnerOptions = {
       ...vueSpinnerOptions,
-      render: options.spinnerRenderer(options)
+      render: options.componentRenderer(options)
     }
   }
 

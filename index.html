@@ -67,11 +67,11 @@ Vue.use(VuePromiseBtn)</pre>
       <div class="highlight">
         <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{action: 'mouseup'}"</span> @click.middle="asyncAction"&gt;Middle mouse&lt;/button&gt;</code></pre>
       </div>
-      <p><button v-promise-btn="promiseBtnOptions.customComponentLoader" @click="dummyAsyncAction">Loader as custom component</button></p>
+      <p><button class="hide-loader" v-promise-btn="promiseBtnOptions.customComponentLoader" @click="dummyAsyncAction">Loader as custom component</button></p>
       <div class="highlight">
         <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{loader: CustomSpinnerComponent}"</span> @click="asyncAction"&gt;Loader as custom component&lt;/button&gt;</code></pre>
       </div>
-      <p><button v-promise-btn="promiseBtnOptions.customHTMLLoader" @click="dummyAsyncAction">Loader as simple HTML</button></p>
+      <p><button class="hide-loader" v-promise-btn="promiseBtnOptions.customHTMLLoader" @click="dummyAsyncAction">Loader as simple HTML</button></p>
       <div class="highlight">
         <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{loader: '&lt;b&gt;(HTML loader...)&lt;/b&gt;' }"</span> @click="asyncAction"&gt;Loader as custom component&lt;/button&gt;</code></pre>
       </div>
@@ -135,14 +135,14 @@ Vue.use(VuePromiseBtn)</pre>
           <td>Built-in Spinner component</td>
         </tr>
         <tr>
-          <td>spinnerWrapper</td>
+          <td>stringHTMLRenderer</td>
           <td>Function</td>
-          <td>Returns spinner wrapper template</td>
+          <td>Returns HTML string template</td>
         </tr>
         <tr>
-          <td>spinnerRenderer</td>
+          <td>componentRenderer</td>
           <td>Function</td>
-          <td>Returns spinner funcional renderer</td>
+          <td>Returns component render-function</td>
         </tr>
       </table>
 
