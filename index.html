@@ -37,13 +37,17 @@
 // not required. Styles for built-in spinner
 <span class="no">import</span> 'vue-promise-btn/dist/vue-promise-btn.css'
 
-Vue.use(VuePromiseBtn)</pre>
+Vue.use(VuePromiseBtn) // or with global options:  Vue.use(VuePromiseBtn, {loader: '...'})</pre>
       </div>
 
       <h2>Quick Start</h2>
       <p>Plugin syntax is extremely simple. Just add directive v-promise-btn to your button:</p>
       <div class="highlight">
         <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> @click="getData"&gt;Get Data&lt;/button&gt;</code></pre>
+      </div>
+      <p>Easily change single instance options:</p>
+      <div class="highlight">
+        <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="options"</span> @click="getData"&gt;Get Data&lt;/button&gt;</code></pre>
       </div>
 
       <blockquote>
