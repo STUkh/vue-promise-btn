@@ -23,14 +23,14 @@ npm install --save vue-promise-btn
 ```
 #### Quick Start:
 - Import and "handshake" plugin with vue
-```
+```javascript
 import Vue from 'vue'
 import VuePromiseBtn from 'vue-promise-btn'
 
 // not required. Styles for built-in spinner
 import 'vue-promise-btn/dist/vue-promise-btn.css'
 
-Vue.use(VuePromiseBtn)
+Vue.use(VuePromiseBtn) // or with global options Vue.use(VuePromiseBtn, {})
 ```
 
 - Use in components
