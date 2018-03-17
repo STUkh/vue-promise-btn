@@ -13,6 +13,10 @@ We accept contributions via Pull Requests on [Github](https://github.com/STUkh <
 
 - **Create feature branches** - Don't ask us to pull from your master branch.
 
+- **Follow ESLink standard codestyle** - We use standard code style to keep codebase fresh and clean
+
+- **Exclude ./dist folder from PR** - Ensure that *dist* files excluded from PR. Build will be updated before publishing
+
 - **One pull request per feature** - If you want to do more than one thing, send multiple pull requests.
 
 **Happy coding**!
