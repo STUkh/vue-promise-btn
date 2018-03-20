@@ -43,22 +43,21 @@ const initSpinner = function (btnEl, options, vnode, isLoaderString) {
         type: Object,
         default: () => vnode.context
       }
-    }
+    },
+    render: options.componentRenderer(options)
   }
 
   if (isLoaderString) {
+    const tpl = options.stringHTMLRenderer(options)
+    const res = Vue.compile(tpl)
     vueSpinnerOptions = {
       ...vueSpinnerOptions,
       data: {
         ...vueSpinnerOptions.data,
         options
       },
-      template: options.stringHTMLRenderer(options)
-    }
-  } else {
-    vueSpinnerOptions = {
-      ...vueSpinnerOptions,
-      render: options.componentRenderer(options)
+      render: res.render,
+      staticRenderFns: res.staticRenderFns
     }
   }
 

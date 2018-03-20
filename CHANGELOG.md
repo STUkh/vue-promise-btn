@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.0
+- Use better template compilation way
+
 ## 1.0.11
 - Fix options and example for stringHTMLRenderer
 
