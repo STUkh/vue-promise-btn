@@ -85,7 +85,7 @@ export const setupVuePromiseBtn = function (globalOptions) {
         ...globalOptions,
         ...instanceOptions
       }
-      const handler = vnode.data.on && vnode.data.on[options.action] && vnode.data.on[options.action]._withTask
+      const handler = vnode.data.on && vnode.data.on[options.action] && (vnode.data.on[options.action]._withTask || vnode.data.on[options.action]._wrapper)
       const isLoaderString = isString(options.loader)
       let btnEl = el
       let spinnerVM = null

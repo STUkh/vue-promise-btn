@@ -1,6 +1,6 @@
 {
   "name": "vue-promise-btn",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Vue.js plugin that handles buttons asynchronous lock and show loading state indicator",
   "scripts": {
     "start": "npm run dev",
@@ -41,24 +41,24 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "cross-env": "^5.1.4",
+    "cross-env": "^5.2.0",
     "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-html": "^4.0.2",
-    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-html": "^4.0.6",
+    "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "rimraf": "^2.6.2",
-    "rollup": "^0.57.0",
-    "rollup-plugin-buble": "^0.19.2",
-    "rollup-plugin-commonjs": "^9.1.0",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "rimraf": "^2.6.3",
+    "rollup": "^0.57.1",
+    "rollup-plugin-buble": "^0.19.6",
+    "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-eslint": "^4.0.0",
     "rollup-plugin-livereload": "^0.6.0",
-    "rollup-plugin-node-resolve": "^3.2.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-serve": "^0.4.2",
     "rollup-plugin-uglify": "^3.0.0",
     "rollup-plugin-vue": "^3.0.0",
-    "vue": "^2.5.16",
-    "vue-template-compiler": "^2.5.16"
+    "vue": "^2.6.3",
+    "vue-template-compiler": "^2.6.3"
   }
 }

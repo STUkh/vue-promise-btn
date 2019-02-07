@@ -1,4 +1,6 @@
 # Changelog
+## 1.2.0
+- Add support for vue@2.6+
 
 ## 1.1.0
 - Use better template compilation way
