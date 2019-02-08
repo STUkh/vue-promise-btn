@@ -173,6 +173,11 @@ Vue.use(VuePromiseBtn) // or with global options:  Vue.use(VuePromiseBtn, {loade
       <h2>Limitations</h2>
       <ul>
         <li>
+            Vue versions higher <a href="https://github.com/vuejs/vue/releases/tag/v2.6.0">v2.6.0</a> does not support promise-btn v1.1.0.
+            <br>
+            For Vue v2.6 or higher use promise-btn v1.2.0 or higher.
+        </li>
+        <li>
             Vue versions below <a href="https://github.com/vuejs/vue/releases/tag/v2.5.14">v2.5.14</a> does not support promise-btn with event modifiers. <br>
             This code will not work, because events with modifiers will always return "undefined"
             <div class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> @click.prevent="asyncAction"&gt;With Prevent modifier&lt;/button&gt;</code></div>
