@@ -121,6 +121,14 @@ export const setupVuePromiseBtn = function (globalOptions) {
         }
       }
 
+      const getFiniteHandler = function (expression) {
+        let result = expression
+        while (typeof result === 'function') {
+          result = result()
+        }
+        return result
+      }
+
       // Register info in listeners object
       directive.listeners[id] = {
         el,
@@ -147,10 +155,11 @@ export const setupVuePromiseBtn = function (globalOptions) {
       // Set custom event that will replace original listener
       directive.listener = function (e) {
         if (options.disableBtn && scheduled) return
-        const response = handler(e)
-        if (isPromise(response)) {
+        const expression = handler(e)
+        const responseHandler = typeof expression === 'function' ? getFiniteHandler(expression) : expression
+        if (isPromise(responseHandler)) {
           beforeResponseHandler()
-          response
+          responseHandler
             .then(resolveHandler)
             .catch(e => {
               resolveHandler()

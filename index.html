@@ -79,6 +79,10 @@ Vue.use(VuePromiseBtn) // or with global options:  Vue.use(VuePromiseBtn, {loade
       <div class="highlight">
         <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{loader: '&lt;b&gt;(HTML loader...)&lt;/b&gt;' }"</span> @click="asyncAction"&gt;Loader as custom component&lt;/button&gt;</code></pre>
       </div>
+      <p><button class="hide-loader" v-promise-btn @click="asyncActionWithArgs($event, 'abc')">Btn with expression on click handler</button></p>
+      <div class="highlight">
+          <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> @click="asyncActionWithArgs('abc')"&gt;Loader as custom component&lt;/button&gt;</code></pre>
+      </div>
 
       <hr>
 
@@ -185,7 +189,7 @@ Vue.use(VuePromiseBtn) // or with global options:  Vue.use(VuePromiseBtn, {loade
         </li>
       </ul>
       <footer class="site-footer">
-        <span class="site-footer-owner">MIT &copy; {{currentYear}} <a href="https://github.com/STUkh">STUkh</a></span> 
+        <span class="site-footer-owner">MIT &copy; {{currentYear}} <a href="https://github.com/STUkh">STUkh</a></span>
         <span class="site-footer-credits"><a href="https://github.com/STUkh/vue-promise-btn">GitHub</a> ◉ <a href="https://npmjs.org/package/vue-promise-btn">NPM</a></span>
       </footer>
     </section>

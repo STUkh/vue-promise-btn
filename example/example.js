@@ -11,7 +11,7 @@ new Vue({
     currentYear: new Date().getFullYear(),
     promiseBtnOptions: {
       customComponentLoader: { loader: CustomSpinner },
-      customHTMLLoader: { loader: '<b>(HTML loader...)</b>' },
+      customHTMLLoader: { loader: '<b>(HTML loader...)</b>' }
     }
   },
   methods: {
@@ -19,7 +19,16 @@ new Vue({
       return this.currentChain++
     },
     dummyAsyncAction () {
-      return new Promise((res, rej) => setTimeout(res, 2000))
+      return new Promise((resolve, reject) => setTimeout(resolve, 2000))
+    },
+    asyncActionWithArgs ($event, param) {
+      return () => {
+        console.log(param)
+        // double return to show that expression to promise can be
+        return () => {
+          return this.dummyAsyncAction()
+        }
+      }
     },
     chain () {
       this.currentChain = 1
@@ -30,5 +39,5 @@ new Vue({
         .then(this.dummyAsyncAction)
         .then(() => { this.currentChain = 0 })
     }
-  },
+  }
 })
