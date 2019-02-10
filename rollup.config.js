@@ -2,17 +2,19 @@ import vue from 'rollup-plugin-vue'
 import buble from 'rollup-plugin-buble'
 import nodeResolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
-import uglify from 'rollup-plugin-uglify'
+import { terser } from "rollup-plugin-terser";
 import livereload from 'rollup-plugin-livereload'
 import serve from 'rollup-plugin-serve'
-import eslint from 'rollup-plugin-eslint';
+import { eslint } from "rollup-plugin-eslint";
+import css from 'rollup-plugin-css-only'
 import pkg from './package.json';
 
 const isDevelopment = process.env.NODE_ENV === `development`
 
 let plugins = [
+  css({ output: pkg.style }),
   vue({
-    css: pkg.style
+    css: false
   }),
   eslint(),
   buble({
@@ -47,7 +49,7 @@ if (isDevelopment) {
   )
 } else {
   config.output.sourcemap = false
-  config.plugins.push(uglify())
+  config.plugins.push(terser({ sourcemap: false }))
 }
 
 export default config

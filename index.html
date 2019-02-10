@@ -81,7 +81,7 @@ Vue.use(VuePromiseBtn) // or with global options:  Vue.use(VuePromiseBtn, {loade
       </div>
       <p><button class="hide-loader" v-promise-btn @click="asyncActionWithArgs($event, 'abc')">Btn with expression on click handler</button></p>
       <div class="highlight">
-          <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> @click="asyncActionWithArgs('abc')"&gt;Loader as custom component&lt;/button&gt;</code></pre>
+          <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> @click="asyncActionWithArgs($event, 'abc')"&gt;Loader as custom component&lt;/button&gt;</code></pre>
       </div>
 
       <hr>
