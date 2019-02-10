@@ -40,6 +40,12 @@ Vue.use(VuePromiseBtn) // or with global options Vue.use(VuePromiseBtn, {})
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
+## Important Notice
+
+Don't use semicolon in event expressions. It may break promise return in template-compiler: <br>
+Good: `@click="handler($event)"` <br>
+Bad: `@click="handler($event);"`
+
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
