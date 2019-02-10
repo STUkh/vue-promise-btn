@@ -1,4 +1,8 @@
 # Changelog
+## 1.3.0
+- Fixed issues #2 and #4
+- Added ability to pass params in event expressions properly
+
 ## 1.2.0
 - Add support for vue@2.6+
 
