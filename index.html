@@ -8,6 +8,15 @@
   <script src="./dist/vue-promise-btn.umd.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
   <link rel="stylesheet" href="./example/cayman-theme.min.css?v=61aea895ce389a448a1ddb8f5be47f68a02053c5">
+  <!-- START: Bootstrap-Vue related stuff -->
+  <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+  <link
+   type="text/css"
+   rel="stylesheet"
+   href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"
+  />
+  <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+  <!-- END: Bootstrap-Vue related stuff -->
   <link rel="stylesheet" href="./dist/vue-promise-btn.css">
   <link rel="stylesheet" href="./example/example.css">
 </head>
@@ -16,15 +25,17 @@
     <section class="page-header">
       <h1 class="project-name">vue-promise-btn</h1>
       <h2 class="project-tagline">Vue.js plugin that handles buttons asynchronous lock and show loading state indicator</h2>
-        <a href="https://github.com/STUkh/vue-promise-btn" class="btn">View on GitHub</a>
-        <a href="https://github.com/STUkh/vue-promise-btn/zipball/master" class="btn">Download .zip</a>
-        <a href="https://github.com/STUkh/vue-promise-btn/tarball/master" class="btn">Download .tar.gz</a>
+        <a href="https://github.com/STUkh/vue-promise-btn" class="cayman-btn">View on GitHub</a>
+        <a href="https://github.com/STUkh/vue-promise-btn/zipball/master" class="cayman-btn">Download .zip</a>
+        <a href="https://github.com/STUkh/vue-promise-btn/tarball/master" class="cayman-btn">Download .tar.gz</a>
     </section>
     <section class="main-content">
       <h2>Features</h2>
       <ul>
         <li>Easy-to-use API</li>
+        <li>Flexible Usage</li>
         <li>Works with any tag and even forms</li>
+        <li>In Extended Mode - compatible with 3rd party components</li>
         <li>Packaged with optional built-in spinner</li>
         <li>Only 1.5KB minified and gzipped</li>
         <li>ESM, CommonJS, UMD versions</li>
@@ -41,17 +52,24 @@ Vue.use(VuePromiseBtn) // or with global options:  Vue.use(VuePromiseBtn, {loade
       </div>
 
       <h2>Quick Start</h2>
-      <p>Plugin syntax is extremely simple. Just add directive v-promise-btn to your button:</p>
+      <p>There are 2 modes for this plugin: <b>SIMPLIFIED</b> and <b>EXTENDED</b></p>
+      <h3>Simplified syntax:</h3>
+      <p>EXTREMELY easy. Just add directive v-promise-btn to your button:</p>
       <div class="highlight">
         <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> @click="getData"&gt;Get Data&lt;/button&gt;</code></pre>
       </div>
-      <p>Easily change single instance options:</p>
-      <div class="highlight">
-        <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="options"</span> @click="getData"&gt;Get Data&lt;/button&gt;</code></pre>
-      </div>
+      <p>Or with single instance options:</p>
+      <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="options"</span> @click="getData"&gt;Get Data&lt;/button&gt;</code></pre>
+      <blockquote>
+          <b>!!! Event handler should <span class="highlight"><span class="s1">always return Promise</span></span> for SIMPLIFIED mode</b>
+      </blockquote>
+
+      <h3>Extended syntax:</h3>
+      <p>Simply add option parameter <span class="s1">promise</span> and assing to it promise from data you want to handle.</p>
+      <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{ promise: isLoading }"</span> @click="getData"&gt;Get Data&lt;/button&gt;</code></pre>
 
       <blockquote>
-        <b>!!! Event handler should always return Promise</b>
+          <b>!!! If you face any issue - better to use <span class="highlight"><span class="s1">EXTENDED</span></span> syntax</b>
       </blockquote>
 
       <h3>Examples</h3>
@@ -82,6 +100,17 @@ Vue.use(VuePromiseBtn) // or with global options:  Vue.use(VuePromiseBtn, {loade
       <p><button class="hide-loader" v-promise-btn @click="asyncActionWithArgs($event, 'abc')">Btn with expression on click handler</button></p>
       <div class="highlight">
           <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> @click="asyncActionWithArgs($event, 'abc')"&gt;Loader as custom component&lt;/button&gt;</code></pre>
+      </div>
+
+      <p><button class="hide-loader" v-promise-btn="{ promise: dataPromise }" @click="asyncWithPromiseInData('Hello from async action!')">Extended syntax with external promise</button></p>
+      <div class="highlight">
+        <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{ promise: dataPromise }"</span> @click="asyncWithPromiseInData('Hello from async action!')"&gt;Extended syntax with external promise&lt;/button&gt;</code></pre>
+      </div>
+      <blockquote>This param allow to use directive with external components. Use this option if you faced issued with simplified syntax</blockquote>
+
+      <p><b-btn v-promise-btn="{ promise: bootstrapBtnPromise }"  @click="vueBootstrap('Hello from vue bootstrap button!')">Extended with Vue Bootstrap</b-btn></p>
+      <div class="highlight">
+          <pre class="highlight"><code><span class="no">&lt;b-btn</span> <span class="s1">v-promise-btn="{ promise: bootstrapBtnPromise }"</span> @click="vueBootstrap('Hello from vue bootstrap button!')"<span class="no">&gt;</span>Extended with Vue Bootstrap<span class="no">&lt;/b-btn&gt;</span></code></pre>
       </div>
 
       <hr>

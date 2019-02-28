@@ -1,4 +1,9 @@
 # Changelog
+## 2.0.0
+Added `Extended` mode:
+- Compatibility with all 3rd party plugins and components
+- Agnostic to template compilations and always properly triggers functional params
+
 ## 1.3.0
 - Fixed issues #2 and #4
 - Added ability to pass params in event expressions properly

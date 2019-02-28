@@ -12,7 +12,9 @@ https://STUkh.github.io/vue-promise-btn/
 
 ## Features
 - Easy-to-use API
+- Flexible Usage
 - Works with any tag and even forms
+- In Extended Mode - compatible with 3rd party components
 - Packaged with optional built-in spinner
 - Only 1.5KB minified and gzipped
 - ESM, CommonJS, UMD versions
@@ -33,14 +35,19 @@ import 'vue-promise-btn/dist/vue-promise-btn.css'
 Vue.use(VuePromiseBtn) // or with global options Vue.use(VuePromiseBtn, {})
 ```
 
-- Use in components
+- Simple usage:
 ``` <button v-promise-btn @click="getData">Get Data</button> ```
+- Extended usage: ``` <button v-promise-btn={ promise: dataPromise } @click="getData('param')">Get Data</button> ```
+
+#### If you face any issue with simple mode, just try out extended, it's more reliable way.
 
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
 ## Important Notice
+
+Alwayes return Promise from expression. Especially in simple mode.
 
 Don't use semicolon in event expressions. It may break promise return in template-compiler: <br>
 Good: `@click="handler($event)"` <br>
