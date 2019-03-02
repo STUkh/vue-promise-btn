@@ -97,10 +97,13 @@ Vue.use(VuePromiseBtn) // or with global options:  Vue.use(VuePromiseBtn, {loade
       <div class="highlight">
         <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{loader: '&lt;b&gt;(HTML loader...)&lt;/b&gt;' }"</span> @click="asyncAction"&gt;Loader as custom component&lt;/button&gt;</code></pre>
       </div>
-      <p><button class="hide-loader" v-promise-btn @click="asyncActionWithArgs($event, 'abc')">Btn with expression on click handler</button></p>
+      <p><button class="hide-loader" v-promise-btn v-on="{ click: asyncActionWithArgs($event, 'abc') }">Btn with expression on click handler</button></p>
       <div class="highlight">
-          <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> @click="asyncActionWithArgs($event, 'abc')"&gt;Loader as custom component&lt;/button&gt;</code></pre>
+          <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> v-on="{ click: asyncActionWithArgs($event, 'abc') }"&gt;Btn with expression on click handle&lt;/button&gt;</code></pre>
       </div>
+      <blockquote>
+          <b><span class="highlight"><span class="s1">!!! Important:</span></span> if you want to use closure - you have to define <span class="highlight">v-on="{ click: test('abc') }"</span> instead of <span class="highlight">@click="test('abc')"</span></b>
+      </blockquote>
 
       <p><button class="hide-loader" v-promise-btn="{ promise: dataPromise }" @click="asyncWithPromiseInData('Hello from async action!')">Extended syntax with external promise</button></p>
       <div class="highlight">

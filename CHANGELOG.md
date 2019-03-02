@@ -1,4 +1,7 @@
 # Changelog
+## 2.0.1
+- Updated example: added case how to use closure for inline-expression
+
 ## 2.0.0
 Added `Extended` mode:
 - Compatibility with all 3rd party plugins and components
