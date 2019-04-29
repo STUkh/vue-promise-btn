@@ -47,7 +47,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Important Notice
 
-Alwayes return Promise from expression. Especially in simple mode.
+Always return Promise from expression. Especially in simple mode.
 
 Don't use semicolon in event expressions. It may break promise return in template-compiler: <br>
 Good: `@click="handler($event)"` <br>
