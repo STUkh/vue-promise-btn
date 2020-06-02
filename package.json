@@ -1,6 +1,6 @@
 {
   "name": "vue-promise-btn",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Vue.js plugin that handles buttons asynchronous lock and show loading state indicator",
   "scripts": {
     "start": "npm run dev",
@@ -20,6 +20,7 @@
   "main": "dist/vue-promise-btn.common.js",
   "unpkg": "dist/vue-promise-btn.umd.js",
   "style": "dist/vue-promise-btn.css",
+  "typings": "./index.d.ts",
   "keywords": [
     "vue",
     "promise",
@@ -33,7 +34,8 @@
   ],
   "files": [
     "dist/",
-    "src/"
+    "src/",
+    "index.d.ts"
   ],
   "license": "MIT",
   "bugs": {
