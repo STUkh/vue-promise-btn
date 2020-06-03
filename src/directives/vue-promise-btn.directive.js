@@ -95,7 +95,9 @@ export const setupVuePromiseBtn = function (globalOptions) {
       // START: loading state handlers
       const handleLoadingFinished = (btnEl) => {
         if (minTimeoutDone && promiseDone) {
-          spinnerVM.show = false
+          if (options.showSpinner) {
+            spinnerVM.show = false
+          }
           minTimeoutDone = false
           promiseDone = false
           enableBtn(btnEl, options)
@@ -107,19 +109,17 @@ export const setupVuePromiseBtn = function (globalOptions) {
         disableBtn(btnEl, options)
         if (options.showSpinner) {
           spinnerVM.show = true
-          setTimeout(function () {
-            minTimeoutDone = true
-            handleLoadingFinished(btnEl)
-          }, options.minTimeout)
         }
+        setTimeout(function () {
+          minTimeoutDone = true
+          handleLoadingFinished(btnEl)
+        }, options.minTimeout)
       }
 
       const finishLoading = () => {
         scheduled = false
-        if (options.showSpinner) {
-          promiseDone = true
-          handleLoadingFinished(btnEl)
-        }
+        promiseDone = true
+        handleLoadingFinished(btnEl)
       }
 
       const getFiniteHandler = (expression) => {

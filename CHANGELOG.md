@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.4
+- Fixed button enabling when `showSpinner` is set to `false`
+
 ## 2.0.3
 - Add TypeScript typings
 
