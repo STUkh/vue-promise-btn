@@ -1,7 +1,7 @@
 declare module 'vue-promise-btn' {
   import _Vue, { Component, VNode, CreateElement, DirectiveOptions } from 'vue';
 
-  export interface VuePromiseBtnOptions {
+  export type VuePromiseBtnOptions = {
     btnLoadingClass?: string;
     spinnerHiddenClass?: string;
     action?: string;
@@ -12,6 +12,10 @@ declare module 'vue-promise-btn' {
     loader?: Component | string;
     stringHTMLRenderer?: (options: VuePromiseBtnOptions) => string;
     componentRenderer?: (options: VuePromiseBtnOptions) => (h: CreateElement) => () => VNode;
+  };
+
+  export interface VuePromiseBtnDirectiveOptions extends VuePromiseBtnOptions {
+    promise?: Promise<any> | null;
   }
 
   export function install(Vue: typeof _Vue, options?: VuePromiseBtnOptions): void;

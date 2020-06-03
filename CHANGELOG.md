@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.3
+- Add TypeScript typings
+
 ## 2.0.2
 - Update NPM version. Dev bundle was in dist by mistake
 
