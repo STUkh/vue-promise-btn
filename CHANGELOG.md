@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.0
+- Add component event handling
+
 ## 2.0.4
 - Fixed button enabling when `showSpinner` is set to `false`
 

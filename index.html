@@ -77,30 +77,51 @@ Vue.use(VuePromiseBtn) // or with global options:  Vue.use(VuePromiseBtn, {loade
       <div class="highlight">
         <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> @click="asyncAction"&gt;Click handler&lt;/button&gt;</code></pre>
       </div>
+
+      <hr>
+
       <p><button v-promise-btn @click.prevent="dummyAsyncAction">With Prevent modifier</button></p>
       <div class="highlight">
         <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> @click.prevent="asyncAction"&gt;With Prevent modifier&lt;/button&gt;</code></pre>
       </div>
+
+      <hr>
+
       <p><button v-promise-btn="{action: 'contextmenu'}" @click.right.prevent="dummyAsyncAction">Right mouse</button></p>
       <div class="highlight">
         <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{action: 'contextmenu'}"</span> @click.right="asyncAction"&gt;Right mouse&lt;/button&gt;</code></pre>
       </div>
+
+      <hr>
+
       <p><button v-promise-btn="{action: 'mouseup'}" @click.middle="dummyAsyncAction">Middle mouse </button></p>
       <div class="highlight">
         <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{action: 'mouseup'}"</span> @click.middle="asyncAction"&gt;Middle mouse&lt;/button&gt;</code></pre>
       </div>
+
+      <hr>
+
       <p><button class="hide-loader" v-promise-btn="promiseBtnOptions.customComponentLoader" @click="dummyAsyncAction">Loader as custom component</button></p>
       <div class="highlight">
         <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{loader: CustomSpinnerComponent}"</span> @click="asyncAction"&gt;Loader as custom component&lt;/button&gt;</code></pre>
       </div>
+
+      <hr>
+
       <p><button class="hide-loader" v-promise-btn="promiseBtnOptions.customHTMLLoader" @click="dummyAsyncAction">Loader as simple HTML</button></p>
       <div class="highlight">
         <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{loader: '&lt;b&gt;(HTML loader...)&lt;/b&gt;' }"</span> @click="asyncAction"&gt;Loader as custom component&lt;/button&gt;</code></pre>
       </div>
+
+      <hr>
+
       <p><button class="hide-loader" v-promise-btn v-on="{ click: asyncActionWithArgs($event, 'abc') }">Btn with expression on click handler</button></p>
       <div class="highlight">
           <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn</span> v-on="{ click: asyncActionWithArgs($event, 'abc') }"&gt;Btn with expression on click handle&lt;/button&gt;</code></pre>
       </div>
+
+      <hr>
+
       <blockquote>
           <b><span class="highlight"><span class="s1">!!! Important:</span></span> if you want to use closure - you have to define <span class="highlight">v-on="{ click: test('abc') }"</span> instead of <span class="highlight">@click="test('abc')"</span></b>
       </blockquote>
@@ -109,6 +130,9 @@ Vue.use(VuePromiseBtn) // or with global options:  Vue.use(VuePromiseBtn, {loade
       <div class="highlight">
         <pre class="highlight"><code>&lt;button <span class="s1">v-promise-btn="{ promise: dataPromise }"</span> @click="asyncWithPromiseInData('Hello from async action!')"&gt;Extended syntax with external promise&lt;/button&gt;</code></pre>
       </div>
+
+      <hr>
+
       <blockquote>This param allow to use directive with external components. Use this option if you faced issued with simplified syntax</blockquote>
 
       <p><b-btn v-promise-btn="{ promise: bootstrapBtnPromise }"  @click="vueBootstrap('Hello from vue bootstrap button!')">Extended with Vue Bootstrap</b-btn></p>
@@ -126,6 +150,23 @@ Vue.use(VuePromiseBtn) // or with global options:  Vue.use(VuePromiseBtn, {loade
   &lt;button type="submit"&gt;Button Form Submit&lt;/button&gt;
 &lt;/form&gt;</code></pre>
       </div>
+      
+      <hr>
+
+      <custom-form @submit="dummyAsyncAction" v-promise-btn="{action: 'submit'}"></custom-form>
+      <div class="highlight">
+        <pre class="highlight"><code>Vue.component('custom-form', {
+  template: `&lt;form @submit.prevent="$emit('submit', 'data')"&gt;
+    &lt;p&gt;
+      &lt;button type="submit">Button Form Submit - Handle Component Event&lt;/button&gt;
+    &lt;/p>
+  &lt;/form&gt;`
+})
+
+&lt;custom-form @submit="dummyAsyncAction" v-promise-btn="{action: 'submit'}"&gt;&lt;/custom-form&gt;</code></pre>
+      </div>
+
+      <hr>
 
       <form action="" @submit.prevent="dummyAsyncAction" v-promise-btn="{action: 'submit'}">
         <p><input type="submit" value="Input Form Submit"></p>

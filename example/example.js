@@ -1,9 +1,18 @@
+/* eslint-disable */
 document.addEventListener('DOMContentLoaded', function(){
     Vue.use(VuePromiseBtn)
     Vue.use(bootstrapVue)
 
     const CustomSpinner = Vue.component('custom-spinner', {
         template: '<span>...</span>'
+    })
+
+    Vue.component('custom-form', {
+        template: `<form @submit.prevent="$emit('submit', 'data')">
+            <p>
+                <button type="submit">Button Form Submit - Handle Component Event</button>
+            </p>
+        </form>`
     })
 
     new Vue({
