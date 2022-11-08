@@ -60,7 +60,7 @@
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-serve": "^1.0.1",
     "rollup-plugin-terser": "^4.0.4",
-    "rollup-plugin-vue": "^4.7.1",
+    "rollup-plugin-vue": "^6.0.0",
     "vue": "^2.6.3",
     "vue-template-compiler": "^2.6.3"
   }
